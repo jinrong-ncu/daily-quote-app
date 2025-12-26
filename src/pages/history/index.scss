@@ -1,0 +1,71 @@
+.history-container {
+    min-height: 100vh;
+    background: #f5f5f5; // 浅灰背景
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        font-family: serif;
+    }
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.1s;
+
+    &:active {
+        transform: scale(0.98); // 点击时的按压效果
+    }
+
+    .thumb {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        margin-right: 16px;
+        background: #eee;
+        flex-shrink: 0;
+    }
+
+    .info {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .date {
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    .english-preview {
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+        // 限制只显示 2 行，多余省略
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    margin-top: 100px;
+}
