@@ -57,23 +57,29 @@ export default function Index() {
         const res = await db.collection('daily_sentences').doc(id).get({})
         setDaily(res.data as DailyQuote)
       } else {
-        // 1. 查数据库
+        // 1. 获取今天的日期字符串 YYYY-MM-DD
+        const now = new Date()
+        const y = now.getFullYear()
+        const m = (now.getMonth() + 1).toString().padStart(2, '0')
+        const d = now.getDate().toString().padStart(2, '0')
+        const todayStr = `${y}-${m}-${d}`
+
+        // 2. 查数据库看看今天的是否已经存在
         const res = await db.collection('daily_sentences')
-          .orderBy('created_at', 'desc')
-          .limit(1)
+          .where({
+            date: todayStr
+          })
           .get()
 
         if (res.data.length > 0) {
-          // 强制类型断言，因为云数据库返回的是 any[]
+          console.log('命中缓存，直接使用:', todayStr)
           setDaily(res.data[0] as DailyQuote)
         } else {
-          console.log('数据库为空，呼叫云函数...')
+          console.log('今日暂无缓存，呼叫云函数抓取...')
           const callRes = await Taro.cloud.callFunction({
             name: 'getDailyQuote',
           })
 
-          // 检查返回结果结构 (根据你的云函数返回格式)
-          // 注意：Taro.cloud.callFunction 返回类型也是 any，这里最好做下防空判断
           const resultData = (callRes.result as any)?.data
           if (resultData) {
             setDaily(resultData as DailyQuote)

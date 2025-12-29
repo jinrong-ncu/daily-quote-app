@@ -46,14 +46,14 @@
     }
 
     .date {
-        font-size: 12px;
+        font-size: 14px;
         color: #999;
         margin-bottom: 4px;
         display: block;
     }
 
     .english-preview {
-        font-size: 14px;
+        font-size: 16px;
         color: #333;
         font-weight: 500;
         // 限制只显示 2 行，多余省略
@@ -68,4 +68,40 @@
     text-align: center;
     color: #999;
     margin-top: 100px;
+}
+
+
+.card {
+  display: block; // 不再并排
+  padding: 0; // 去掉内边距，为了让图片贴边
+  overflow: hidden; // 只有圆角内的内容可见
+  border: none; // 去掉边框，用阴影
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); // 更柔和的大阴影
+
+  .thumb {
+    width: 100%; // 图片撑满
+    height: 220px; // 高度定死，或者用 aspect-ratio
+    margin-right: 0;
+    border-radius: 12px 12px 0 0; // 只有上边有圆角
+  }
+
+  .info {
+    padding: 20px; // 文字区域要有呼吸感
+    background: #fff;
+  }
+
+  .date {
+    color: #bbb;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  .english-preview {
+    font-size: 18px;
+    font-family: 'Times New Roman', serif; // 衬线体
+    line-height: 1.4;
+    color: #222;
+  }
 }
