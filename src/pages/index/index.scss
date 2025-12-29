@@ -57,7 +57,7 @@
 }
 
 .date {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 2px;
   opacity: 0.8;
   margin-bottom: 20px;
@@ -66,7 +66,7 @@
 }
 
 .english {
-  font-size: 32px;
+  font-size: 40px;
   line-height: 1.4;
   font-weight: 600;
   font-family: 'Times New Roman', serif; // 衬线体更有质感
@@ -92,7 +92,7 @@
 }
 
 .chinese {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
   opacity: 0.9;
   font-weight: 300;
@@ -140,7 +140,7 @@
 
 .history-btn {
   position: absolute;
-  top: 50px; // 避开胶囊按钮和刘海屏
+  top: 150px; // 避开胶囊按钮和刘海屏
   left: 20px;
   z-index: 10;
   background: rgba(255, 255, 255, 0.2);
@@ -151,7 +151,9 @@
 
   text {
     color: #fff;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
   }
 }
+
+
